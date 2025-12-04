@@ -100,6 +100,62 @@ input[type="datetime-local"] {
    color: #2c3e50;
 }
 
+/* -----------------------------------------------------------
+   Date & Time Row Layout
+----------------------------------------------------------- */
+.datetime-row {
+   display: flex;
+   gap: 15px;
+   align-items: flex-start;
+}
+
+.date-input-wrapper {
+   flex: 2;
+   min-width: 0;
+}
+
+.time-input-wrapper {
+   flex: 1;
+   min-width: 120px;
+}
+
+.date-formats {
+   display: flex;
+   align-items: center;
+   gap: 8px;
+   margin-top: 8px;
+   font-size: 0.85em;
+   color: #555;
+   flex-wrap: wrap;
+}
+
+.format-label {
+   font-weight: 600;
+   color: #7f8c8d;
+}
+
+.format-value {
+   color: #2c3e50;
+   font-family: monospace;
+   font-weight: 500;
+}
+
+.format-separator {
+   color: #bdc3c7;
+   margin: 0 4px;
+}
+
+@media (max-width: 768px) {
+   .datetime-row {
+      flex-direction: column;
+   }
+   
+   .date-input-wrapper,
+   .time-input-wrapper {
+      width: 100%;
+   }
+}
+
 select:focus,
 input:focus {
    outline: none;

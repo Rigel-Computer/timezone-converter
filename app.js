@@ -4,12 +4,6 @@
     Changes: English text, layout switcher function added
 */
 
-// Initialize on page load
-document.addEventListener('DOMContentLoaded', function() {
-    init();
-    loadLayoutPreference();
-});
-
 // Main initialization
 function init() {
     populateTimezones();
@@ -54,7 +48,44 @@ function setDefaultDateTime() {
     
     document.getElementById('dateInput').value = `${year}-${month}-${day}`;
     document.getElementById('timeInput').value = '';
+    
+    // Update date format displays
+    updateDateFormats(`${year}-${month}-${day}`);
 }
+
+// Update date format displays
+function updateDateFormats(isoDate) {
+    const isoFormatEl = document.getElementById('isoFormat');
+    const usFormatEl = document.getElementById('usFormat');
+    
+    if (!isoDate) {
+        isoFormatEl.textContent = '--';
+        usFormatEl.textContent = '--';
+        return;
+    }
+    
+    // ISO format is already in YYYY-MM-DD
+    isoFormatEl.textContent = isoDate;
+    
+    // Convert to US format MM/DD/YYYY
+    const [year, month, day] = isoDate.split('-');
+    usFormatEl.textContent = `${month}/${day}/${year}`;
+}
+
+// Listen to date input changes
+document.addEventListener('DOMContentLoaded', function() {
+    init();
+    loadLayoutPreference();
+    
+    // Add event listener for date changes
+    const dateInput = document.getElementById('dateInput');
+    dateInput.addEventListener('change', function() {
+        updateDateFormats(this.value);
+    });
+    dateInput.addEventListener('input', function() {
+        updateDateFormats(this.value);
+    });
+});
 
 // Main function: Timezone conversion
 function convertTimezone() {
