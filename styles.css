@@ -1,0 +1,289 @@
+/*
+    File: styles.css
+    Last modified: 04.12.2025 17:15 MEZ
+    Changes: Added layout switcher button styles
+*/
+/* FLAT-UI DESIGN */
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+body {
+   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+   background: #2c3e50;
+   min-height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 20px;
+}
+
+/* -----------------------------------------------------------
+   Container
+----------------------------------------------------------- */
+.container {
+   max-width: 1200px;
+   width: 100%;
+   background: #ffffff;
+   border: 2px solid #c0c0c0;
+   border-radius: 10px;
+   padding: 40px;
+}
+
+/* -----------------------------------------------------------
+   Typography
+----------------------------------------------------------- */
+h1 {
+   text-align: center;
+   color: #2c3e50;
+   margin-bottom: 10px;
+   font-size: 2.3em;
+}
+
+.subtitle {
+   text-align: center;
+   color: #7f8c8d;
+   margin-bottom: 40px;
+   font-size: 1.1em;
+}
+
+/* -----------------------------------------------------------
+   Input sections
+----------------------------------------------------------- */
+.input-section,
+.result-section {
+   background: #f2f2f2;
+   border-radius: 10px;
+   padding: 25px;
+   margin-bottom: 30px;
+   border: 1px solid #d0d0d0;
+}
+
+.result-section {
+   display: none;
+}
+
+.result-section.active {
+   display: block;
+}
+
+.input-group {
+   margin-bottom: 25px;
+}
+
+label {
+   display: block;
+   margin-bottom: 8px;
+   color: #2c3e50;
+   font-weight: 600;
+   font-size: 1em;
+   text-transform: uppercase;
+   letter-spacing: 0.5px;
+}
+
+/* -----------------------------------------------------------
+   Inputs & Select
+----------------------------------------------------------- */
+select,
+input[type="text"],
+input[type="date"],
+input[type="datetime-local"] {
+   width: 100%;
+   padding: 14px;
+   border: 1px solid #c0c0c0;
+   border-radius: 6px;
+   background: #ffffff;
+   font-size: 1em;
+   color: #2c3e50;
+}
+
+select:focus,
+input:focus {
+   outline: none;
+   border-color: #3498db;
+}
+
+.search-hint {
+   font-size: 0.9em;
+   color: #7f8c8d;
+   margin-top: 6px;
+}
+
+/* -----------------------------------------------------------
+   Main Action Buttons
+----------------------------------------------------------- */
+.button-group {
+   display: flex;
+   gap: 15px;
+   margin-top: 30px;
+}
+
+button {
+   flex: 1;
+   padding: 16px;
+   border: none;
+   border-radius: 6px;
+   font-size: 1.1em;
+   font-weight: 600;
+   cursor: pointer;
+   text-transform: uppercase;
+   letter-spacing: 1px;
+   transition: all 0.3s ease;
+}
+
+.convert-btn {
+   background: #3498db;
+   color: #ffffff;
+}
+
+.convert-btn:hover {
+   background: #2980b9;
+}
+
+.reset-btn {
+   background: #95a5a6;
+   color: #ffffff;
+}
+
+.reset-btn:hover {
+   background: #7f8c8d;
+}
+
+/* -----------------------------------------------------------
+   Results
+----------------------------------------------------------- */
+.result-item {
+   background: #ffffff;
+   border: 1px solid #d0d0d0;
+   border-radius: 6px;
+   padding: 20px;
+   margin-bottom: 15px;
+}
+
+.result-label {
+   color: #7f8c8d;
+   font-size: 0.9em;
+   text-transform: uppercase;
+}
+
+.result-value {
+   color: #2c3e50;
+   font-size: 1.5em;
+}
+
+.time-difference {
+   text-align: center;
+   background: #ffffff;
+   border: 1px solid #d0d0d0;
+   border-radius: 6px;
+   padding: 15px;
+   color: #3498db;
+   font-weight: 600;
+}
+
+/* -----------------------------------------------------------
+   Layout Switcher
+----------------------------------------------------------- */
+.layout-switcher {
+   margin: 40px 0 30px 0;
+   padding: 25px;
+   background: #f9f9f9;
+   border-radius: 10px;
+   border: 1px solid #e0e0e0;
+}
+
+.layout-buttons {
+   display: flex;
+   gap: 15px;
+   justify-content: center;
+   flex-wrap: wrap;
+}
+
+.layout-btn {
+   padding: 14px 30px;
+   border: none;
+   border-radius: 6px;
+   font-size: 1em;
+   font-weight: 600;
+   cursor: pointer;
+   text-transform: uppercase;
+   letter-spacing: 1px;
+   transition: all 0.3s ease;
+   flex: 0 1 auto;
+}
+
+.normal-btn {
+   background: #3498db;
+   color: #ffffff;
+}
+
+.normal-btn:hover {
+   background: #2980b9;
+   transform: translateY(-2px);
+}
+
+.metallic-btn {
+   background: linear-gradient(145deg, #c0c0c0, #a0a0a0);
+   color: #2c3e50;
+}
+
+.metallic-btn:hover {
+   background: linear-gradient(145deg, #a0a0a0, #c0c0c0);
+   transform: translateY(-2px);
+}
+
+/* -----------------------------------------------------------
+   Layout
+----------------------------------------------------------- */
+.grid {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+   gap: 20px;
+}
+
+@media (max-width: 768px) {
+   .container {
+      padding: 25px;
+   }
+   .button-group {
+      flex-direction: column;
+   }
+   .layout-buttons {
+      flex-direction: column;
+   }
+   .layout-btn {
+      width: 100%;
+   }
+}
+
+.loader {
+   display: none;
+   text-align: center;
+   color: #3498db;
+   font-size: 1.2em;
+   margin: 20px 0;
+}
+
+.loader.active {
+   display: block;
+}
+
+/* -----------------------------------------------------------
+   Footer / Disclaimer
+----------------------------------------------------------- */
+.disclaimer {
+   margin-top: 30px;
+   padding-top: 30px;
+   border-top: 1px solid #d0d0d0;
+   text-align: center;
+}
+
+.disclaimer p {
+   font-size: 0.85em;
+   color: #7f8c8d;
+   font-style: italic;
+   margin: 8px 0;
+}

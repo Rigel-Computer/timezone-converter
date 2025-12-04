@@ -1,0 +1,151 @@
+<!--
+    File: timezone-converter.html
+    Last modified: 04.12.2025 17:15 MEZ
+    Changes: English text, layout switcher added
+-->
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Timezone Converter</title>
+      <link rel="icon" type="image/x-icon" href="timezone_clock_icon.ico" />
+      <link rel="stylesheet" href="styles.css" id="mainStylesheet" />
+   </head>
+   <body>
+      <div class="container">
+         <h1>⏰ Timezone Converter</h1>
+         <p class="subtitle">Worldwide time conversion in seconds</p>
+
+         <div class="input-section">
+            <div class="input-group">
+               <label for="sourceTimezone">Your Timezone</label>
+               <select id="sourceTimezone">
+                  <option value="">-- Select Timezone --</option>
+               </select>
+            </div>
+
+            <div class="input-group">
+               <label for="targetTimezone">Target Timezone</label>
+               <select id="targetTimezone">
+                  <option value="">-- Select Timezone --</option>
+               </select>
+            </div>
+
+            <div class="input-group">
+               <label for="dateInput">Date (optional)</label>
+               <input type="date" id="dateInput" />
+               <div class="search-hint">Leave empty for current date</div>
+            </div>
+
+            <div class="input-group">
+               <label for="timeInput">Time (optional)</label>
+               <select id="timeInput">
+                  <option value="">-- Current time --</option>
+                  <option value="00:00">00:00</option>
+                  <option value="01:00">01:00</option>
+                  <option value="02:00">02:00</option>
+                  <option value="03:00">03:00</option>
+                  <option value="04:00">04:00</option>
+                  <option value="05:00">05:00</option>
+                  <option value="06:00">06:00</option>
+                  <option value="07:00">07:00</option>
+                  <option value="08:00">08:00</option>
+                  <option value="09:00">09:00</option>
+                  <option value="10:00">10:00</option>
+                  <option value="11:00">11:00</option>
+                  <option value="12:00">12:00</option>
+                  <option value="13:00">13:00</option>
+                  <option value="14:00">14:00</option>
+                  <option value="15:00">15:00</option>
+                  <option value="16:00">16:00</option>
+                  <option value="17:00">17:00</option>
+                  <option value="18:00">18:00</option>
+                  <option value="19:00">19:00</option>
+                  <option value="20:00">20:00</option>
+                  <option value="21:00">21:00</option>
+                  <option value="22:00">22:00</option>
+                  <option value="23:00">23:00</option>
+               </select>
+               <div class="search-hint">Leave empty for current time</div>
+            </div>
+
+            <div class="button-group">
+               <button class="convert-btn" onclick="convertTimezone()">
+                  Convert
+               </button>
+               <button class="reset-btn" onclick="resetForm()">Reset</button>
+            </div>
+         </div>
+
+         <div class="loader" id="loader">Calculating...</div>
+
+         <div class="result-section" id="resultSection">
+            <h2 style="color: #2c3e50; margin-bottom: 20px; text-align: center">
+               Result
+            </h2>
+            <div class="grid">
+               <div class="result-item">
+                  <div class="result-label">Source Time</div>
+                  <div class="result-value" id="sourceTime">--</div>
+                  <div
+                     class="result-label"
+                     style="margin-top: 10px"
+                     id="sourceZoneName"
+                  >
+                     --
+                  </div>
+               </div>
+               <div class="result-item">
+                  <div class="result-label">Target Time</div>
+                  <div class="result-value" id="targetTime">--</div>
+                  <div
+                     class="result-label"
+                     style="margin-top: 10px"
+                     id="targetZoneName"
+                  >
+                     --
+                  </div>
+               </div>
+            </div>
+            <div class="time-difference" id="timeDifference">--</div>
+         </div>
+
+         <!-- Layout Switcher -->
+         <div class="layout-switcher">
+            <h3 style="color: #2c3e50; margin-bottom: 15px; text-align: center; font-size: 1.2em">
+               Choose Your Style
+            </h3>
+            <div class="layout-buttons">
+               <button class="layout-btn normal-btn" onclick="switchLayout('normal')">
+                  Normal Layout
+               </button>
+               <button class="layout-btn metallic-btn" onclick="switchLayout('metallic')">
+                  Neumorphic Layout
+               </button>
+            </div>
+         </div>
+
+         <div class="disclaimer">
+            <p>
+               <em
+                  >This tool was created with assistance from Generative AI
+                  (Claude by Anthropic).</em
+               >
+            </p>
+            <p>
+               <em
+                  >Disclaimer: While this converter uses the IANA timezone
+                  database for accurate calculations, not all timezone
+                  combinations have been individually tested. Please verify
+                  critical meeting times independently. No warranty or guarantee
+                  is provided for the accuracy of conversions.</em
+               >
+            </p>
+         </div>
+      </div>
+
+      <script src="timezone-data.js"></script>
+      <script src="app.js"></script>
+   </body>
+</html>
