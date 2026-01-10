@@ -10,7 +10,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>Timezone Converter</title>
       <link rel="icon" type="image/x-icon" href="timezone_clock_icon.ico" />
-      <link rel="stylesheet" href="styles.css" id="mainStylesheet" />
+      <link rel="stylesheet" href="styles_metallic.css" id="mainStylesheet" />
    </head>
    <body>
       <div class="container">
@@ -33,7 +33,7 @@
             </div>
 
             <div class="input-group">
-               <label>Date & Time (optional)</label>
+               <label>Desired Target Date & Time</label>
                <div class="datetime-row">
                   <div class="date-input-wrapper">
                      <input type="date" id="dateInput" />
@@ -48,34 +48,34 @@
                   <div class="time-input-wrapper">
                      <select id="timeInput">
                         <option value="">-- Current time --</option>
-                        <option value="00:00">00:00</option>
-                        <option value="01:00">01:00</option>
-                        <option value="02:00">02:00</option>
-                        <option value="03:00">03:00</option>
-                        <option value="04:00">04:00</option>
-                        <option value="05:00">05:00</option>
-                        <option value="06:00">06:00</option>
-                        <option value="07:00">07:00</option>
-                        <option value="08:00">08:00</option>
-                        <option value="09:00">09:00</option>
-                        <option value="10:00">10:00</option>
-                        <option value="11:00">11:00</option>
-                        <option value="12:00">12:00</option>
-                        <option value="13:00">13:00</option>
-                        <option value="14:00">14:00</option>
-                        <option value="15:00">15:00</option>
-                        <option value="16:00">16:00</option>
-                        <option value="17:00">17:00</option>
-                        <option value="18:00">18:00</option>
-                        <option value="19:00">19:00</option>
-                        <option value="20:00">20:00</option>
-                        <option value="21:00">21:00</option>
-                        <option value="22:00">22:00</option>
-                        <option value="23:00">23:00</option>
+                        <option value="00:00">00:00 (12am)</option>
+                        <option value="01:00">01:00 (1am)</option>
+                        <option value="02:00">02:00 (2am)</option>
+                        <option value="03:00">03:00 (3am)</option>
+                        <option value="04:00">04:00 (4am)</option>
+                        <option value="05:00">05:00 (5am)</option>
+                        <option value="06:00">06:00 (6am)</option>
+                        <option value="07:00">07:00 (7am)</option>
+                        <option value="08:00">08:00 (8am)</option>
+                        <option value="09:00">09:00 (9am)</option>
+                        <option value="10:00">10:00 (10am)</option>
+                        <option value="11:00">11:00 (11am)</option>
+                        <option value="12:00">12:00 (12pm)</option>
+                        <option value="13:00">13:00 (1pm)</option>
+                        <option value="14:00">14:00 (2pm)</option>
+                        <option value="15:00">15:00 (3pm)</option>
+                        <option value="16:00">16:00 (4pm)</option>
+                        <option value="17:00">17:00 (5pm)</option>
+                        <option value="18:00">18:00 (6pm)</option>
+                        <option value="19:00">19:00 (7pm)</option>
+                        <option value="20:00">20:00 (8pm)</option>
+                        <option value="21:00">21:00 (9pm)</option>
+                        <option value="22:00">22:00 (10pm)</option>
+                        <option value="23:00">23:00 (11pm)</option>
                      </select>
                   </div>
                </div>
-               <div class="search-hint">Leave empty for current date & time</div>
+               <div class="search-hint">Enter desired target date & time</div>
             </div>
 
             <div class="button-group">
@@ -92,7 +92,7 @@
             <h2 style="color: #2c3e50; margin-bottom: 20px; text-align: center">
                Result
             </h2>
-            <div class="grid">
+            <div class="grid" style="display: none">
                <div class="result-item">
                   <div class="result-label">Source Time</div>
                   <div class="result-value" id="sourceTime">--</div>
@@ -117,18 +117,39 @@
                </div>
             </div>
             <div class="time-difference" id="timeDifference">--</div>
+
+            <div class="result-item" style="margin-top: 10px">
+               <div
+                  class="result-value"
+                  id="resultText"
+                  style="font-size: 1.4em; line-height: 1.6; text-align: center"
+               ></div>
+            </div>
          </div>
 
          <!-- Layout Switcher -->
          <div class="layout-switcher">
-            <h3 style="color: #2c3e50; margin-bottom: 15px; text-align: center; font-size: 1.2em">
+            <h3
+               style="
+                  color: #2c3e50;
+                  margin-bottom: 15px;
+                  text-align: center;
+                  font-size: 1.2em;
+               "
+            >
                Choose Your Style
             </h3>
             <div class="layout-buttons">
-               <button class="layout-btn normal-btn" onclick="switchLayout('normal')">
+               <button
+                  class="layout-btn normal-btn"
+                  onclick="switchLayout('normal')"
+               >
                   Normal Layout
                </button>
-               <button class="layout-btn metallic-btn" onclick="switchLayout('metallic')">
+               <button
+                  class="layout-btn metallic-btn"
+                  onclick="switchLayout('metallic')"
+               >
                   Neumorphic Layout
                </button>
             </div>

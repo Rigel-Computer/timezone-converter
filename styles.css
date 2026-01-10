@@ -25,7 +25,7 @@ body {
    Container
 ----------------------------------------------------------- */
 .container {
-   max-width: 1200px;
+   max-width: 960px;
    width: 100%;
    background: #ffffff;
    border: 2px solid #c0c0c0;
@@ -149,7 +149,7 @@ input[type="datetime-local"] {
    .datetime-row {
       flex-direction: column;
    }
-   
+
    .date-input-wrapper,
    .time-input-wrapper {
       width: 100%;
@@ -272,13 +272,14 @@ button {
 }
 
 .normal-btn {
-   background: #3498db;
-   color: #ffffff;
+   background: #ffffff;
+   color: #3498db;
+   border: 2px solid #3498db;
 }
 
 .normal-btn:hover {
-   background: #2980b9;
-   transform: translateY(-2px);
+   background: #3498db;
+   color: #ffffff;
 }
 
 .metallic-btn {
@@ -342,4 +343,11 @@ button {
    color: #7f8c8d;
    font-style: italic;
    margin: 8px 0;
+}
+
+/* -----------------------------------------------------------
+   Result Highlight (exclusive)
+----------------------------------------------------------- */
+.result-section.active {
+   background: #f8eef2;
 }
