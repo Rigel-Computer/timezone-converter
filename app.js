@@ -240,9 +240,9 @@ function convertTimezone() {
          const resultTextEl = document.getElementById("resultText");
          if (resultTextEl) {
             const direction =
-               diffMinutes > 0
+               diffMinutes < 0
                   ? "later"
-                  : diffMinutes < 0
+                  : diffMinutes > 0
                   ? "earlier"
                   : "at the same time";
             const diffHoursText =

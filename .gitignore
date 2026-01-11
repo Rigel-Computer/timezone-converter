@@ -3,6 +3,7 @@
 
 # Project-specific files to ignore
 Docs/
+Neuer/
 Verzeichnisstruktur.txt
 verzeichnisstruktur_batch.bat
 image-prompt-reve.txt
